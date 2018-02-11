@@ -31,12 +31,14 @@ namespace Core.Repository
 
         public bool Create(Model model)
         {
-            throw new NotImplementedException();
+            this.Employee.Add(model);
+            return true;
         }
 
         public bool Delete(int id, bool isSoft = false)
         {
-            throw new NotImplementedException();
+            this.Employee.Remove(this.Employee.Find(mach => mach.Id == id));
+            return true;
         }
 
         public List<Model> Read()
@@ -46,12 +48,12 @@ namespace Core.Repository
 
         public Model Read(int id)
         {
-            throw new NotImplementedException();
+            return this.Employee.Find(mach => mach.Id == id);
         }
 
         public bool Update(int id, Model model)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

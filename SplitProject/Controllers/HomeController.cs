@@ -15,6 +15,32 @@ namespace SplitProject.Controllers
         public ActionResult Index()
         {
             List<Model> list = RepositoryFactory.Repository(Alias.Employee).Read();
+            //this.TryUpdateModel<Employee>(new Employee
+            //{
+            //
+            //});
+            //return View(list.Cast<Employee>());
+            return HttpNotFound();
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee model)
+        {
+            dynamic DB = null;
+
+            DB.Employee.Add(model);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Empolyee()
+        {
+            List<Model> list = RepositoryFactory.Repository(Alias.Employee).Read();
             return View(list.Cast<Employee>());
         }
     }
